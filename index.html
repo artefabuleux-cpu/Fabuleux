@@ -1,1 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Fabuleux | Bancas Capitoneadas de Lujo</title>
+
+    <meta name="description" content="Bancas capitonadas Fabuleux. Calidad Europea, acabados premium, diferentes medidas y colores. Desde $890.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background: #fafafa;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #111;
+            color: white;
+            padding: 20px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            letter-spacing: 5px;
+        }
+
+        .logo span {
+            color: #d6b36a;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #d6b36a;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background:
+                linear-gradient(rgba(0,0,0,.48), rgba(0,0,0,.48)),
+                url("https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(45px, 7vw, 82px);
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 35px;
+        }
+
+        .offer {
+            display: inline-block;
+            background: #b00000;
+            padding: 12px 25px;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #d6b36a;
+            color: #111;
+            padding: 16px 35px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .button:hover {
+            transform: scale(1.04);
+            background: #e6c987;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: Georgia, serif;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* PRODUCTOS */
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .product {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,.08);
+            transition: .3s;
+        }
+
+        .product:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 40px rgba(0,0,0,.14);
+        }
+
+        .product img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #a00000;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .product-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* OFERTA */
+
+        .sale {
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .sale h2 {
+            color: #d6b36a;
+            font-family: Georgia, serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .sale p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: auto auto 30px;
+            line-height: 1.6;
+        }
+
+        /* MEDIDAS */
+
+        .sizes {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .size {
+            background: white;
+            width: 250px;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,.08);
+        }
+
+        .size strong {
+            display: block;
+            font-family: Georgia, serif;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .size span {
+            font-size: 24px;
+            color: #a00000;
+            font-weight: bold;
+        }
+
+        /* CARACTERISTICAS */
+
+        .features {
+            background: #f1eee8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .feature-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* CONTACTO */
+
+        .contact {
+            text-align: center;
+            background: #fff;
+        }
+
+        .contact h2 {
+            font-family: Georgia, serif;
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .phone {
+            font-size: 24px;
+            margin: 20px 0 30px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* WHATSAPP */
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 62px;
+            height: 62px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,.25);
+            z-index: 999;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+
+            .hero {
+                min-height: 580px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .sale h2 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        FABULEUX<span>.</span>
+    </div>
+
+    <nav>
+        <a href="#productos">Productos</a>
+        <a href="#medidas">Medidas</a>
+        <a href="#calidad">Calidad</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="offer">
+            GRAN OFERTA · SOLO ESTA SEMANA
+        </div>
+
+        <h1>FABULEUX</h1>
+
+        <h2>Calidad Europea</h2>
+
+        <p>
+            Bancas capitonadas con acabados premium
+            para transformar cualquier espacio.
+        </p>
+
+        <a class="button"
+           href="https://wa.me/529992191102"
+           target="_blank">
+            💬 COMPRAR POR WHATSAPP
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTOS -->
+
+<section id="productos">
+
+    <h2 class="section-title">
+        Nuestras Bancas
+    </h2>
+
+    <p class="section-subtitle">
+        Diseño elegante, fabricación cuidada y materiales
+        seleccionados para crear una pieza que luzca espectacular
+        en cualquier espacio.
+    </p>
+
+    <div class="products">
+
+        <div class="product">
+
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85"
+                 alt="Banca elegante">
+
+            <div class="product-info">
+
+                <h3>Banca Capitoneada</h3>
+
+                <p>
+                    Elegancia clásica con capitonado de acabado premium.
+                </p>
+
+                <div class="price">
+                    Desde $890
+                </div>
+
+                <a class="button"
+                   href="https://wa.me/529992191102"
+                   target="_blank">
+                    Consultar
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=900&q=85"
+                 alt="Banca de lujo">
+
+            <div class="product-info">
+
+                <h3>Diseño Premium</h3>
+
+                <p>
+                    Una pieza sofisticada para habitaciones,
+                    salas y espacios especiales.
+                </p>
+
+                <div class="price">
+                    Desde $890
+                </div>
+
+                <a class="button"
+                   href="https://wa.me/529992191102"
+                   target="_blank">
+                    Consultar
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="product">
+
+            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85"
+                 alt="Mueble elegante">
+
+            <div class="product-info">
+
+                <h3>Personalizada</h3>
+
+                <p>
+                    Escoge medida, color y tipo de tela
+                    para crear tu propia combinación.
+                </p>
+
+                <div class="price">
+                    Desde $890
+                </div>
+
+                <a class="button"
+                   href="https://wa.me/529992191102"
+                   target="_blank">
+                    Consultar
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- OFERTA -->
+
+<section class="sale">
+
+    <h2>🔥 GRAN OFERTA 🔥</h2>
+
+    <p>
+        Aprovecha nuestra promoción por tiempo limitado.
+        Bancas capitonadas de calidad premium
+        <strong>DESDE $890</strong>.
+    </p>
+
+    <a class="button"
+       href="https://wa.me/529992191102"
+       target="_blank">
+        QUIERO MI BANCA
+    </a>
+
+</section>
+
+
+<!-- MEDIDAS -->
+
+<section id="medidas">
+
+    <h2 class="section-title">
+        Elige tu medida
+    </h2>
+
+    <p class="section-subtitle">
+        Todas nuestras bancas tienen aproximadamente
+        40 cm de ancho y 50 cm de alto, más el largo.
+    </p>
+
+    <div class="sizes">
+
+        <div class="size">
+            <strong>60 cm</strong>
+            <span>$890</span>
+        </div>
+
+        <div class="size">
+            <strong>80 cm</strong>
+            <span>$990</span>
+        </div>
+
+        <div class="size">
+            <strong>1 metro</strong>
+            <span>$1,090</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CALIDAD -->
+
+<section id="calidad" class="features">
+
+    <h2 class="section-title">
+        Calidad Fabuleux
+    </h2>
+
+    <p class="section-subtitle">
+        Detalles que hacen la diferencia.
+    </p>
+
+    <div class="feature-grid">
+
+        <div class="feature">
+
+            <div class="feature-icon">✨</div>
+
+            <h3>Acabados Premium</h3>
+
+            <p>
+                Fabricación cuidada hasta el último detalle.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">🛋️</div>
+
+            <h3>Capitonado</h3>
+
+            <p>
+                Diseño elegante que aporta personalidad
+                y sofisticación.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">🎨</div>
+
+            <h3>Elige tu color</h3>
+
+            <p>
+                Personaliza tu banca con diferentes colores
+                y opciones de tela.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">🏆</div>
+
+            <h3>Calidad Europea</h3>
+
+            <p>
+                El estilo y la elegancia que distinguen
+                a Fabuleux.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACTO -->
+
+<section id="contacto" class="contact">
+
+    <h2>¿Quieres la tuya?</h2>
+
+    <p class="section-subtitle">
+        Escríbenos por WhatsApp y pregunta por las medidas,
+        colores disponibles y modelos.
+    </p>
+
+    <div class="phone">
+        📱 999 219 1102<br>
+        📱 999 783 1230
+    </div>
+
+    <a class="button"
+       href="https://wa.me/529992191102"
+       target="_blank">
+        💬 HABLAR POR WHATSAPP
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        <strong>FABULEUX</strong> · Calidad Europea
+    </p>
+
+    <p>
+        © 2026 Fabuleux. Todos los derechos reservados.
+    </p>
+
+</footer>
+
+
+<!-- BOTON WHATSAPP -->
+
+<a class="whatsapp"
+   href="https://wa.me/529992191102"
+   target="_blank"
+   title="WhatsApp">
+    ☎
+</a>
+
+</body>
+</html>
